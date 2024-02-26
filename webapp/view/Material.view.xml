@@ -1,0 +1,151 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="ardprepstocknissanrasa.controller.Material" xmlns:layout="sap.ui.layout" xmlns:ux="sap.uxap" xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core" displayBlock="true" xmlns:t="sap.ui.table">
+	<Page showNavButton="true" navButtonPress="onNavBack">
+		<HeaderContainer class="sapUiTinyMarginBottom">
+			<layout:VerticalLayout class="sapUiMediumMarginBegin">
+				<Title class="sapUiMediumMarginTop sapUiTinyMarginBottom" id="headerForTest" text="Material: {flowModelMat>/0/Material}"/>
+			</layout:VerticalLayout>
+		</HeaderContainer>
+		<t:Table id="table" selectionMode="None" rows="{flowModelMat>/}" visibleRowCount="7" enableCellFilter="{ui>/cellFilterOn}"
+			filter="filterPrice" ariaLabelledBy="title">
+			<t:extension>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://email" press="EnvioCorreo"/>
+					<Button icon="sap-icon://excel-attachment" press="excelManagement"/>
+				</OverflowToolbar>
+			</t:extension>
+			<t:columns>
+				<t:Column width="11rem" sortProperty="Material" filterProperty="Material">
+					<Label text="Material"/>
+					<t:template>
+						<Text text="{flowModelMat>Material}" wrapping="false"/>
+					</t:template>
+				</t:Column>
+				<t:Column width="11rem" sortProperty="Cantidadembarcada" filterProperty="Cantidadembarcada">
+					<Label text="Cant. embarcada"/>
+					<t:template>
+						<Text text="{ path: 'flowModelMat>Cantidadembarcada', formatter: '.formatCantidades' }" wrapping="false"/>
+					</t:template>
+				</t:Column>
+				<t:Column width="11rem" sortProperty="Nombre" filterProperty="Nombre">
+					<Label text="Nombre"/>
+					<t:template>
+						<Text text="{flowModelMat>Nombre}" wrapping="false"/>
+					</t:template>
+				</t:Column>
+				<t:Column width="11rem" sortProperty="Factura" filterProperty="Factura">
+					<Label text="Factura"/>
+					<t:template>
+						<Text text="{flowModelMat>Factura}" wrapping="false"/>
+					</t:template>
+				</t:Column>
+				<t:Column width="11rem" sortProperty="Fechapedido" filterProperty="Fechapedido">
+					<Label text="Fecha de pedido"/>
+					<t:template>
+						<Text text="{ path: 'flowModelMat>Fechapedido', 
+						type: 'sap.ui.model.type.Date', 
+						formatOptions: {
+							source: {
+								pattern: 'yyyyMMdd'
+							},
+							pattern: 'dd/MM/yyyy'
+						}
+						}"/>
+					</t:template>
+				</t:Column>
+				<t:Column width="11rem" sortProperty="Fechaembarque" filterProperty="Fechaembarque">
+					<Label text="Fecha embarque"/>
+					<t:template>
+						<Text text="{ path: 'flowModelMat>Fechaembarque', 
+						type: 'sap.ui.model.type.Date', 
+						formatOptions: {
+							source: {
+								pattern: 'yyyyMMdd'
+							},
+							pattern: 'dd/MM/yyyy'
+						}
+						}"/>
+					</t:template>
+				</t:Column>
+				<t:Column width="11rem" sortProperty="Mediotransporte" filterProperty="Mediotransporte">
+					<Label text="Medio de transporte"/>
+					<t:template>
+						<Text text="{flowModelMat>Mediotransporte}" wrapping="false"/>
+					</t:template>
+				</t:Column>
+				<t:Column width="11rem" sortProperty="Fechaprevarribo" filterProperty="Fechaprevarribo">
+					<Label text="Fecha prev. arribo"/>
+					<t:template>
+						<Text text="{ path: 'flowModelMat>Fechaprevarribo', 
+						type: 'sap.ui.model.type.Date', 
+						formatOptions: {
+							source: {
+								pattern: 'yyyyMMdd'
+							},
+							pattern: 'dd/MM/yyyy'
+						}
+						}"/>
+					</t:template>
+				</t:Column>
+				<t:Column width="11rem" sortProperty="Nrodespacho" filterProperty="Nrodespacho">
+					<Label text="Número de despacho"/>
+					<t:template>
+						<Text text="{flowModelMat>Nrodespacho}" wrapping="false"/>
+					</t:template>
+				</t:Column>
+				<t:Column width="11rem" sortProperty="Fechanac" filterProperty="Fechanac">
+					<Label text="Fecha Nacionalizacion"/>
+					<t:template>
+						<Text text="{ path: 'flowModelMat>Fechanac', 
+						type: 'sap.ui.model.type.Date', 
+						formatOptions: {
+							source: {
+								pattern: 'yyyyMMdd'
+							},
+							pattern: 'dd/MM/yyyy'
+						}
+						}"/>
+					</t:template>
+				</t:Column>
+<!--  CLEON - 8-5-2020 - solicitado por A.Bossi
+				<t:Column width="11rem" sortProperty="Fechaingdep" filterProperty="Fechaingdep">
+					<Label text="Fecha ing. Dep"/>
+					<t:template>
+						<Text text="{ path: 'flowModelMat>Fechaingdep', 
+						type: 'sap.ui.model.type.Date', 
+						formatOptions: {
+							source: {
+								pattern: 'yyyyMMdd'
+							},
+							pattern: 'dd/MM/yyyy'
+						}
+						}"/>
+					</t:template>
+				</t:Column>   -->
+<!-- CLEON - 8-5-2020 - solicitado por A.Bossi
+				<t:Column width="11rem" sortProperty="Etiqueta3pl" filterProperty="Etiqueta3pl">
+					<Label text="Etiqueta conf. 3PI"/>
+					<t:template>
+						<Text text="{flowModelMat>Etiqueta3pl}" wrapping="false"/>
+					</t:template> 
+				</t:Column>  -->
+			</t:columns>
+			<!--<t:footer>-->
+			<!--	<OverflowToolbar id="infobar">-->
+			<!--<Button text="Volver" navButtonPress="onNavBack"></Button>-->
+			<!--		<ToolbarSpacer/>-->
+			<!--		<Button text="Salir" icon="sap-icon://log" press="onSalirDet"/>-->
+			<!--<Button id="downExcel" text="Descargar excel" icon="sap-icon://download" class="sapUiMediumMarginEnd" press="excelManagement"/>-->
+			<!--	</OverflowToolbar>-->
+			<!--</t:footer>-->
+		</t:Table>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Salir" icon="sap-icon://log" press="onSalirDet"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
